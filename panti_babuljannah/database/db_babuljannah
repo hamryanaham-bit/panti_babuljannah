@@ -1,0 +1,29 @@
+CREATE DATABASE IF NOT EXISTS db_babuljannah;
+USE db_babuljannah;
+
+-- 1. Tabel Admin untuk Autentikasi Login
+CREATE TABLE IF NOT EXISTS tb_admin (
+    id_admin INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Data default akun admin
+INSERT INTO tb_admin (username, password) VALUES ('admin', 'admin123');
+
+-- 2. Tabel Kegiatan Panti
+CREATE TABLE IF NOT EXISTS tb_kegiatan (
+    id_kegiatan INT AUTO_INCREMENT PRIMARY KEY,
+    judul_kegiatan VARCHAR(150) NOT NULL,
+    foto VARCHAR(255) NOT NULL,
+    tanggal DATE NOT NULL
+);
+
+-- 3. Tabel Donasi / Konfirmasi Donatur
+CREATE TABLE IF NOT EXISTS tb_donasi (
+    id_donasi INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    pesan TEXT NOT NULL,
+    tanggal_donasi TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
